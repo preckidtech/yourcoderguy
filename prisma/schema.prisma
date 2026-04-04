@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Your EventTracker model stays exactly the same below this...
+model EventTracker {
+  id        String   @id @default(uuid())
+  eventType String
+  path      String
+  device    String
+  createdAt DateTime @default(now())
+}
