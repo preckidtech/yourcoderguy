@@ -22,10 +22,10 @@ export default function Footer() {
               Designing and building high-performing SaaS products, premium web applications, and scalable front-end architecture.
             </p>
             <div className="flex items-center gap-4">
-              <SocialLink href="#" icon={<Twitter size={20} />} />
+              <SocialLink href="https://x.com/yourcoderguy" icon={<Twitter size={20} />} />
               <SocialLink href="#" icon={<Github size={20} />} />
               <SocialLink href="#" icon={<Linkedin size={20} />} />
-              <SocialLink href="mailto:your@email.com" icon={<Mail size={20} />} />
+              <SocialLink href="mailto:preckidtech@gmail.com" icon={<Mail size={20} />} />
             </div>
           </div>
 
