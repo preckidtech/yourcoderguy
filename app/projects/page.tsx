@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink, ArrowUpRight, Sparkles } from "lucide-react";
+import Image from "next/image"; // Added missing Next.js Image import
 
 // Comprehensively extracted from your Upwork Portfolio & History
 const projectData = [
@@ -14,6 +15,19 @@ const projectData = [
     link: "#",
     github: "#",
     featured: true,
+    // ADDED: Unique image path for this project
+    image: "/images/ai-cs-study.png", 
+  },
+  {
+    title: "Credit Risk Prediction",
+    category: "Mobile App",
+    desc: "Machine learning-powered mobile application built entirely from scratch to dynamically summarize Computer Science course materials and generate smart flashcards using T5 and BART models.",
+    tech: ["React", "Python", "Render", "Machine Learning"],
+    link: "https://credit-risk.bennytechhub.com/",
+    github: "https://github.com/benniella/Credit-Risk-Prediction",
+    featured: false,
+    // ADDED: Unique image path for this project
+    image: "/creditrisk.png", 
   },
   {
     title: "Elesan B2B Equipment Rental",
@@ -22,25 +36,29 @@ const projectData = [
     tech: ["Next.js", "Sharetribe Flex", "Stripe Connect", "Node.js"],
     link: "#",
     github: "#",
-    featured: true,
+    featured: false,
+    // ADDED: Unique image path for this project
+    image: "/images/elesan-b2b.png",
   },
   {
     title: "DanceDirectory Booking Hub",
     category: "Marketplace",
     desc: "A seamless class booking marketplace designed for high conversion and intuitive user scheduling.",
     tech: ["Next.js", "Sharetribe", "Tailwind CSS"],
-    link: "#",
+    link: "https://www.thedancedirectory.com/",
     github: "#",
-    featured: false,
+    featured: true,
+    image: "/dance-directory.png",
   },
   {
-    title: "Dictahub AI Interface",
+    title: "Bank Churn",
     category: "SaaS / Web App",
     desc: "Engineered two complex, custom user interfaces for proprietary AI models, focusing on seamless UI/UX and real-time data handling.",
     tech: ["Next.js", "React.js", "API Integration"],
-    link: "#",
-    github: "#",
+    link: "https://bank-churn.bennytechhub.com/",
+    github: "https://github.com/benniella/bank-customer-churn-fastapi",
     featured: false,
+    image: "/bankchurn.png",
   },
   {
     title: "Getragene Lust C2C Market",
@@ -50,33 +68,37 @@ const projectData = [
     link: "#",
     github: "#",
     featured: false,
+    image: "/images/c2c-market.png",
   },
   {
     title: "Ice Cold Studio Media Portal",
     category: "SaaS / Web App",
     desc: "Architected a custom CMS and lightweight SaaS media management application featuring a secure Client Vault with role-based access control.",
-    tech: ["Next.js", "Headless CMS", "RBAC"],
-    link: "#",
-    github: "#",
+    tech: ["Next.js", "Headless CMS", "RBAC", "Supabase"],
+    link: "https://photoweb-chi.vercel.app/",
+    github: "https://github.com/yourcoderrguy/photoweb",
     featured: false,
+    image: "/ice-cold-studio.png",
   },
   {
-    title: "Premium Healthcare Portal",
+    title: "Campus Without Wall",
     category: "Website",
     desc: "High-performance medical and clinic website optimized for patient conversion, fast load times, and professional aesthetic delivery.",
-    tech: ["CMS", "UI/UX Design", "SEO"],
+    tech: ["WIX", "UI/UX Design", "SEO"],
     link: "#",
     github: "#",
     featured: false,
+    image: "/campuswithoutwall.png",
   },
   {
-    title: "Enterprise E-Learning LMS",
+    title: "Dicta Hub",
     category: "Website",
     desc: "Scalable educational platform integrated with Tutor LMS, enabling course creators to manage curriculum and student progress efficiently.",
-    tech: ["WordPress", "Tutor LMS", "Payment Gateways"],
-    link: "#",
+    tech: ["Nextjs", "Python", "Payment Gateways", "Contabo"],
+    link: "https://www.dictahub.com/",
     github: "#",
     featured: false,
+    image: "/dictahub-lms.png",
   }
 ];
 
@@ -132,75 +154,96 @@ export default function Projects() {
       {/* Project Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
         <AnimatePresence mode="popLayout">
-          {filtered.map((p, index) => (
-            <motion.div
-              layout
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              key={p.title}
-              className="group flex flex-col"
-            >
-              {/* Massive Image Preview Container */}
-              <div className="w-full aspect-[4/3] md:aspect-[16/10] bg-[#1E293B] rounded-3xl overflow-hidden relative mb-6 border border-slate-700 shadow-xl group-hover:border-slate-500 transition-colors duration-500">
-                {/* Image Placeholder - Replace with <Image src="/project-image.jpg" fill className="object-cover" /> */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-500 font-medium group-hover:scale-105 transition-transform duration-700 ease-out bg-slate-800/50 gap-2">
-                  <span className="text-sm tracking-widest uppercase opacity-70">{p.title}</span>
-                  <span className="text-xs">Preview Image</span>
-                </div>
+          {filtered.map((p, index) => {
+            return (
+              <motion.div
+                layout
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                key={p.title}
+                className="group flex flex-col"
+              >
+                {/* Massive Image Preview Container */}
+                <div className="w-full aspect-[4/3] md:aspect-[16/10] bg-[#1E293B] rounded-3xl overflow-hidden relative mb-6 border border-slate-700 shadow-xl group-hover:border-slate-500 transition-colors duration-500">
 
-                {/* Top badges */}
-                <div className="absolute top-5 left-5 flex flex-wrap gap-2">
-                  <span className="bg-[#0F172A]/90 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold text-white border border-slate-600 shadow-sm">
-                    {p.category}
-                  </span>
-                  {p.featured && (
-                    <span className="bg-[#FACC15]/90 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold text-[#0F172A] border border-[#FACC15] shadow-sm flex items-center gap-1">
-                      <Sparkles size={12} /> Featured
+                  {/* CORRECTED IMAGE IMPLEMENTATION */}
+                  <Image
+                    src={p.image}
+                    alt={`${p.title} preview`} // Required by Next.js
+                    fill
+                    className="object-cover"
+                    priority={index < 2} // Optional optimization: loads the first two images faster
+                  />
+
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-500 font-medium group-hover:scale-105 transition-transform duration-700 ease-out bg-slate-800/50 gap-2">
+                    {/* <span className="text-sm tracking-widest uppercase opacity-70">{p.title}</span> */}
+                    {/* <span className="text-xs">Preview Image</span> */}
+                  </div>
+
+                  {/* Top badges */}
+                  <div className="absolute top-5 left-5 flex flex-wrap gap-2">
+                    <span className="bg-[#0F172A]/90 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold text-white border border-slate-600 shadow-sm">
+                      {p.category}
                     </span>
-                  )}
-                </div>
+                    {p.featured && (
+                      <span className="bg-[#FACC15]/90 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold text-[#0F172A] border border-[#FACC15] shadow-sm flex items-center gap-1">
+                        <Sparkles size={12} /> Featured
+                      </span>
+                    )}
+                  </div>
 
-                {/* Hover Overlay Links */}
-                <div className="absolute inset-0 bg-[#0F172A]/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6">
-                  <a href={p.link} className="w-14 h-14 bg-[#FACC15] rounded-full flex items-center justify-center text-[#0F172A] hover:scale-110 transition-transform shadow-lg">
-                    <ExternalLink size={24} />
-                  </a>
-                  <a href={p.github} className="w-14 h-14 bg-slate-800 border border-slate-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg">
-                    <Github size={24} />
-                  </a>
-                </div>
-              </div>
-
-              {/* Text & Meta Content */}
-              <div className="flex flex-col flex-grow px-2">
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-2xl font-bold text-[#F8FAFC] group-hover:text-[#FACC15] transition-colors">
-                    {p.title}
-                  </h3>
-                  <a href={p.link} className="text-slate-500 hover:text-[#FACC15] transition-colors md:hidden">
-                    <ArrowUpRight size={24} />
-                  </a>
-                </div>
-                
-                <p className="text-slate-400 text-base leading-relaxed mb-6 flex-grow">
-                  {p.desc}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {p.tech.map(t => (
-                    <span 
-                      key={t} 
-                      className="text-[11px] font-bold uppercase tracking-wider text-slate-300 bg-slate-800/50 border border-slate-700/50 px-3 py-1.5 rounded-lg shadow-sm"
+                  {/* Hover Overlay Links */}
+                  <div className="absolute inset-0 bg-[#0F172A]/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6">
+                    <a
+                      href={p.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-14 h-14 bg-[#FACC15] rounded-full flex items-center justify-center text-[#0F172A] hover:scale-110 transition-transform shadow-lg"
                     >
-                      {t}
-                    </span>
-                  ))}
+                      <ExternalLink size={24} />
+                    </a>
+                    <a
+                      href={p.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-14 h-14 bg-slate-800 border border-slate-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg"
+                    >
+                      <Github size={24} />
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+
+                {/* Text & Meta Content */}
+                <div className="flex flex-col flex-grow px-2">
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-2xl font-bold text-[#F8FAFC] group-hover:text-[#FACC15] transition-colors">
+                      {p.title}
+                    </h3>
+                    <a href={p.link} className="text-slate-500 hover:text-[#FACC15] transition-colors md:hidden">
+                      <ArrowUpRight size={24} />
+                    </a>
+                  </div>
+
+                  <p className="text-slate-400 text-base leading-relaxed mb-6 flex-grow">
+                    {p.desc}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {p.tech.map(t => (
+                      <span
+                        key={t}
+                        className="text-[11px] font-bold uppercase tracking-wider text-slate-300 bg-slate-800/50 border border-slate-700/50 px-3 py-1.5 rounded-lg shadow-sm"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </AnimatePresence>
       </div>
     </main>
