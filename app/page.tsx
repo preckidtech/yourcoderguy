@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, KeyboardEvent } from "react";
+import { useState, KeyboardEvent, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Download, ArrowRight, Github, ExternalLink, Terminal as TerminalIcon } from "lucide-react";
+import { Download, ArrowRight, ExternalLink, Terminal as TerminalIcon } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -15,6 +15,12 @@ export default function Home() {
     { type: "output", text: "Precious Oyebode Isaac: Next.js Developer | AI SaaS & Marketplace Expert." },
     { type: "output", text: "Type 'skills', 'stack', 'motto', or 'clear'..." }
   ]);
+  
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [history]);
 
   const handleCommand = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
@@ -52,7 +58,6 @@ export default function Home() {
       {/* Hero Section */}
       <section className="w-full max-w-4xl flex flex-col items-center text-center mt-16 mb-24">
         
-        {/* Glowing "Available for Work" Status Indicator */}
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -71,17 +76,16 @@ export default function Home() {
           transition={{ duration: 0.5 }}
           className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-[3px] border-[#FACC15] mb-8 overflow-hidden bg-slate-800 shadow-[0_0_30px_rgba(250,204,21,0.15)]"
         >
-          {/* Ensure your profile.png is in the public folder */}
-          <Image src="/profile.png" alt="Precious" fill className="object-cover object-top" />
+          <Image src="/profile.png" alt="Precious Oyebode Isaac" fill className="object-cover object-top" />
         </motion.div>
 
-        {/* Refined Apple-style Typography */}
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
           className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-[#F8FAFC] leading-tight"
         >
+          <span className="block text-lg md:text-2xl font-bold text-slate-400 mb-2 tracking-normal">Next.js Developer & Software Director</span>
           Architecting scalable <br className="hidden md:block" />
           <span className="text-[#FACC15]">Marketplaces & AI SaaS.</span>
         </motion.h1>
@@ -108,15 +112,17 @@ export default function Home() {
             Start a Project <ArrowRight size={18} />
           </Link>
           
-          <button 
+          <a 
+            href="/Oyebode_Precious_Isaac_CV.pdf"
+            download
             className="w-full sm:w-auto border border-slate-700 text-slate-300 px-8 py-3.5 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-slate-800 hover:text-white transition-all"
           >
             Download CV <Download size={18} />
-          </button>
+          </a>
         </motion.div>
       </section>
 
-      {/* Interactive Terminal Easter Egg */}
+      {/* Interactive Terminal */}
       <section className="w-full max-w-3xl mb-32">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -142,6 +148,7 @@ export default function Home() {
                 )}
               </div>
             ))}
+            <div ref={bottomRef} />
             <div className="flex items-center gap-2 mt-2">
               <span className="text-[#FACC15]">$</span>
               <input 
@@ -157,10 +164,10 @@ export default function Home() {
         </motion.div>
       </section>
 
-     {/* Featured Projects with Preview Animation */}
+      {/* Featured Projects */}
       <section className="w-full max-w-5xl">
         <div className="flex justify-between items-end mb-10">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-[#F8FAFC]">Selected Work</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-[#F8FAFC]">Featured Next.js & SaaS Projects</h2>
           <Link href="/projects" className="text-[#FACC15] text-sm font-bold hover:underline flex items-center gap-1">
             View All <ArrowRight size={14} />
           </Link>
@@ -168,7 +175,7 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          {/* Project Card 1: DanceDirectory */}
+          {/* Project Card: DanceDirectory */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -178,7 +185,7 @@ export default function Home() {
             <div className="w-full aspect-[4/3] rounded-2xl bg-[#1E293B] border border-slate-700 overflow-hidden relative shadow-lg group-hover:border-slate-500 transition-colors duration-500">
               <Image 
                 src="/dance-directory.png" 
-                alt="DanceDirectory Marketplace" 
+                alt="Custom Sharetribe Next.js Marketplace developed for DanceDirectory" 
                 fill 
                 className="object-cover group-hover:scale-105 transition-transform duration-500" 
               />
@@ -207,7 +214,7 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Project Card 2: Campus Without Wall */}
+          {/* Project Card: Campus Without Wall */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -217,7 +224,7 @@ export default function Home() {
             <div className="w-full aspect-[4/3] rounded-2xl bg-[#1E293B] border border-slate-700 overflow-hidden relative shadow-lg group-hover:border-slate-500 transition-colors duration-500">
               <Image 
                 src="/campuswithoutwall.png" 
-                alt="Campus Without Wall Educational Website" 
+                alt="Educational Web Platform UI/UX and Development for Campus Without Wall" 
                 fill 
                 className="object-cover group-hover:scale-105 transition-transform duration-500" 
               />
