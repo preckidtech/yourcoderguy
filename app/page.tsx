@@ -85,9 +85,9 @@ export default function Home() {
           transition={{ delay: 0.1 }}
           className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 text-[#F8FAFC] leading-tight"
         >
-          <span className="block text-lg md:text-2xl font-bold text-slate-400 mb-2 tracking-normal">Next.js Developer & Software Director</span>
+          <span className="block text-lg md:text-2xl font-bold text-slate-400 mb-2 tracking-normal">Next.js and Marketplace Developer</span>
           Architecting scalable <br className="hidden md:block" />
-          <span className="text-[#FACC15]">Marketplaces & AI SaaS.</span>
+          <span className="text-[#FACC15]">Web Platforms & AI SaaS</span>
         </motion.h1>
 
         <motion.p 
