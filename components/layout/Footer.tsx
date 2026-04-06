@@ -23,8 +23,8 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <SocialLink href="https://x.com/yourcoderguy" icon={<Twitter size={20} />} />
-              <SocialLink href="#" icon={<Github size={20} />} />
-              <SocialLink href="#" icon={<Linkedin size={20} />} />
+              <SocialLink href="https://github.com/yourcoderrguy" icon={<Github size={20} />} />
+              <SocialLink href="https://www.linkedin.com/in/precious-oyebode/" icon={<Linkedin size={20} />} />
               <SocialLink href="mailto:preckidtech@gmail.com" icon={<Mail size={20} />} />
             </div>
           </div>
@@ -36,7 +36,7 @@ export default function Footer() {
               <li><FooterLink href="/">Home</FooterLink></li>
               <li><FooterLink href="/projects">Project Vault</FooterLink></li>
               <li><FooterLink href="/links">Social Links</FooterLink></li>
-              <li><FooterLink href="/admin">Command Center</FooterLink></li>
+              {/* <li><FooterLink href="/admin">Command Center</FooterLink></li> */}
             </ul>
           </div>
 

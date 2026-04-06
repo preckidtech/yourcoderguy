@@ -157,7 +157,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Featured Projects with Preview Animation */}
+     {/* Featured Projects with Preview Animation */}
       <section className="w-full max-w-5xl">
         <div className="flex justify-between items-end mb-10">
           <h2 className="text-2xl md:text-3xl font-extrabold text-[#F8FAFC]">Selected Work</h2>
@@ -168,65 +168,79 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          {/* Project Card 1: Sharetribe Marketplace */}
+          {/* Project Card 1: DanceDirectory */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="group flex flex-col gap-4"
           >
-            <div className="w-full aspect-[4/3] rounded-2xl bg-slate-800 border border-slate-700 overflow-hidden relative">
-              {/* <Image src="/sharetribe-preview.jpg" alt="Marketplace" fill className="object-cover group-hover:scale-105 transition-transform duration-500" /> */}
-              <div className="absolute inset-0 flex items-center justify-center text-slate-500 font-medium group-hover:scale-105 transition-transform duration-500">
-                Marketplace Preview Image
-              </div>
+            <div className="w-full aspect-[4/3] rounded-2xl bg-[#1E293B] border border-slate-700 overflow-hidden relative shadow-lg group-hover:border-slate-500 transition-colors duration-500">
+              <Image 
+                src="/dance-directory.png" 
+                alt="DanceDirectory Marketplace" 
+                fill 
+                className="object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
               
               <div className="absolute bottom-4 left-4 flex gap-2">
-                <span className="bg-[#0F172A]/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-slate-300 border border-slate-700">Sharetribe Flex</span>
-                <span className="bg-[#0F172A]/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-[#FACC15] border border-slate-700">Next.js</span>
+                <span className="bg-[#0F172A]/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider text-slate-300 border border-slate-700 shadow-sm">Sharetribe</span>
+                <span className="bg-[#0F172A]/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider text-[#FACC15] border border-slate-700 shadow-sm">Next.js</span>
               </div>
             </div>
 
-            <div>
-              <h3 className="text-xl font-bold text-[#F8FAFC] mb-2 group-hover:text-[#FACC15] transition-colors">B2B Equipment Rental Platform</h3>
+            <div className="px-1">
+              <h3 className="text-xl font-bold text-[#F8FAFC] mb-2 group-hover:text-[#FACC15] transition-colors">DanceDirectory Booking Hub</h3>
               <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                A custom two-sided marketplace engineered with complex transaction flows, Stripe Connect integration, and multi-party payment routing.
+                A seamless class booking marketplace designed for high conversion and intuitive user scheduling.
               </p>
               <div className="flex gap-5">
-                <a href="#" className="text-[#F8FAFC] flex items-center gap-2 text-sm font-bold hover:text-[#FACC15] transition-colors">
-                  <ExternalLink size={16} /> View Details
+                <a 
+                  href="https://www.thedancedirectory.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[#F8FAFC] flex items-center gap-2 text-sm font-bold hover:text-[#FACC15] transition-colors"
+                >
+                  <ExternalLink size={16} /> View Live Site
                 </a>
               </div>
             </div>
           </motion.div>
 
-          {/* Project Card 2: AI / SaaS */}
+          {/* Project Card 2: Campus Without Wall */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="group flex flex-col gap-4"
           >
-            <div className="w-full aspect-[4/3] rounded-2xl bg-slate-800 border border-slate-700 overflow-hidden relative">
-              {/* <Image src="/ai-app-preview.jpg" alt="AI SaaS" fill className="object-cover group-hover:scale-105 transition-transform duration-500" /> */}
-              <div className="absolute inset-0 flex items-center justify-center text-slate-500 font-medium group-hover:scale-105 transition-transform duration-500">
-                AI MVP Preview Image
-              </div>
+            <div className="w-full aspect-[4/3] rounded-2xl bg-[#1E293B] border border-slate-700 overflow-hidden relative shadow-lg group-hover:border-slate-500 transition-colors duration-500">
+              <Image 
+                src="/campuswithoutwall.png" 
+                alt="Campus Without Wall Educational Website" 
+                fill 
+                className="object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
               
               <div className="absolute bottom-4 left-4 flex gap-2">
-                <span className="bg-[#0F172A]/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-slate-300 border border-slate-700">Node.js</span>
-                <span className="bg-[#0F172A]/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-[#FACC15] border border-slate-700">AI Integration</span>
+                <span className="bg-[#0F172A]/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider text-slate-300 border border-slate-700 shadow-sm">WIX</span>
+                <span className="bg-[#0F172A]/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider text-[#FACC15] border border-slate-700 shadow-sm">UI/UX Design</span>
               </div>
             </div>
 
-            <div>
-              <h3 className="text-xl font-bold text-[#F8FAFC] mb-2 group-hover:text-[#FACC15] transition-colors">AI/NLP Study Assistant</h3>
+            <div className="px-1">
+              <h3 className="text-xl font-bold text-[#F8FAFC] mb-2 group-hover:text-[#FACC15] transition-colors">Campus Without Wall</h3>
               <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                An advanced MVP leveraging machine learning models (T5 & BART) for automated dynamic content summarization and smart flashcard generation.
+                An expansive educational website built for an Upwork client to broaden access to rigorous academic courses, featuring a highly structured and engaging user interface.
               </p>
               <div className="flex gap-5">
-                <a href="#" className="text-[#F8FAFC] flex items-center gap-2 text-sm font-bold hover:text-[#FACC15] transition-colors">
-                  <ExternalLink size={16} /> View Details
+                <a 
+                  href="https://campuswithoutwalls.org/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-[#F8FAFC] flex items-center gap-2 text-sm font-bold hover:text-[#FACC15] transition-colors"
+                >
+                  <ExternalLink size={16} /> View Live Site
                 </a>
               </div>
             </div>

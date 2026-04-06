@@ -21,7 +21,7 @@ const UpworkIcon = () => (
 export default function SocialLinks() {
   const socials = [
     { name: "Upwork", handle: "Top Rated Expert", url: "https://www.upwork.com/freelancers/~01751909b912ba12d1", icon: <UpworkIcon />, colSpan: "md:col-span-1", color: "text-[#14A800]" },
-    { name: "LinkedIn", handle: "yourcoderguy", url: "https://linkedin.com/in/yourcoderguy", icon: <Linkedin size={28} />, colSpan: "md:col-span-1", color: "text-blue-500" },
+    { name: "LinkedIn", handle: "yourcoderguy", url: "https://www.linkedin.com/in/precious-oyebode/", icon: <Linkedin size={28} />, colSpan: "md:col-span-1", color: "text-blue-500" },
     { name: "Twitter / X", handle: "@yourcoderguy", url: "https://twitter.com/yourcoderguy", icon: <Twitter size={28} />, colSpan: "md:col-span-1", color: "text-slate-300" },
     { name: "YouTube", handle: "@yourcoderguy", url: "https://youtube.com/@yourcoderrguy?si=__yCEqJICp1xjDgi", icon: <Youtube size={28} />, colSpan: "md:col-span-1", color: "text-red-500" },
     { name: "Instagram", handle: "@yourcoderguy", url: "https://instagram.com/yourcoderguy", icon: <Instagram size={28} />, colSpan: "md:col-span-1", color: "text-pink-500" },

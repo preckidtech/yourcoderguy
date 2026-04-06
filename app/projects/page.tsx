@@ -10,35 +10,22 @@ const projectData = [
   {
     title: "AI CS Study Assistant",
     category: "Mobile App",
-    desc: "Machine learning-powered mobile application built entirely from scratch to dynamically summarize Computer Science course materials and generate smart flashcards using T5 and BART models.",
+    desc: "[Work In Progress] My final year project: an AI-powered mobile app built from scratch to dynamically summarize Computer Science course materials and generate smart flashcards using T5 and BART models.",
     tech: ["React Native", "Python", "TensorFlow", "Custom ML"],
-    link: "#",
+    link: "https://www.figma.com/design/3RemGLXHd5eSdmMX0lsBB2/Ai-in-mobile-Study?node-id=0-1&p=f&t=2Cln6dBqjltYAhrT-0",
     github: "#",
     featured: true,
-    // ADDED: Unique image path for this project
-    image: "/images/ai-cs-study.png", 
+    image: "/cs.png", 
   },
-  {
-    title: "Credit Risk Prediction",
-    category: "Mobile App",
-    desc: "Machine learning-powered mobile application built entirely from scratch to dynamically summarize Computer Science course materials and generate smart flashcards using T5 and BART models.",
-    tech: ["React", "Python", "Render", "Machine Learning"],
-    link: "https://credit-risk.bennytechhub.com/",
-    github: "https://github.com/benniella/Credit-Risk-Prediction",
-    featured: false,
-    // ADDED: Unique image path for this project
-    image: "/creditrisk.png", 
-  },
-  {
-    title: "Elesan B2B Equipment Rental",
-    category: "Marketplace",
-    desc: "A comprehensive B2B equipment rental platform. Architected complex transaction flows, custom commission logic, and multi-party payment routing.",
-    tech: ["Next.js", "Sharetribe Flex", "Stripe Connect", "Node.js"],
-    link: "#",
+   {
+    title: "Campus Without Wall",
+    category: "Website",
+    desc: "An expansive educational website built for an Upwork client to broaden access to rigorous academic courses, featuring a highly structured and engaging user interface.",
+    tech: ["WIX", "UI/UX Design", "SEO"],
+    link: "https://campuswithoutwalls.org/",
     github: "#",
-    featured: false,
-    // ADDED: Unique image path for this project
-    image: "/images/elesan-b2b.png",
+    featured: true,
+    image: "/campuswithoutwall.png",
   },
   {
     title: "DanceDirectory Booking Hub",
@@ -50,15 +37,45 @@ const projectData = [
     featured: true,
     image: "/dance-directory.png",
   },
+{
+    title: "Authentise",
+    category: "Website",
+    desc: "Collaborated on an established enterprise website built on Wix. Leveraged Wix Velo to engineer custom programming features and resolve critical bugs, while also designing specific UI components to enhance the overall user experience.",
+    tech: ["Wix", "Wix Velo", "JavaScript", "UI/UX Design"],
+    link: "https://www.authentise.com/",
+    github: "#",
+    featured: true,
+    image: "/authentise.png",
+  },
   {
-    title: "Bank Churn",
+     title: "Benny Tech Hub",
+     category: "Website",
+     desc: "A professional, SEO-optimized portfolio website built on WordPress. Designed to elevate the client's digital presence through a clean, highly responsive layout that effectively showcases their projects and services.",
+     tech: ["WordPress", "Portfolio", "SEO"],
+     link: "https://portfolio.bennytechhub.com/",
+     github: "#",
+     featured: true,
+     image: "/bennytechhub.png",
+   },
+   {
+    title: "Ice Cold Studio Media Portal",
     category: "SaaS / Web App",
-    desc: "Engineered two complex, custom user interfaces for proprietary AI models, focusing on seamless UI/UX and real-time data handling.",
-    tech: ["Next.js", "React.js", "API Integration"],
-    link: "https://bank-churn.bennytechhub.com/",
-    github: "https://github.com/benniella/bank-customer-churn-fastapi",
+    desc: "Architected a custom CMS and lightweight SaaS media management application featuring a secure Client Vault with role-based access control.",
+    tech: ["Next.js", "Headless CMS", "RBAC", "Supabase"],
+    link: "https://photoweb-chi.vercel.app/",
+    github: "https://github.com/yourcoderrguy/photoweb",
+    featured: true,
+    image: "/ice-cold-studio.png",
+  },
+{
+    title: "Elvaan B2B Equipment Rental",
+    category: "Marketplace",
+    desc: "Contributed to an established B2B equipment rental marketplace built on Sharetribe Flex. Assisted the core team by debugging complex transaction flows and integrating custom frontend features to improve the overall platform experience.",
+    tech: ["Next.js", "Sharetribe Flex", "Stripe Connect", "Node.js"],
+    link: "https://elvaan.com/",
+    github: "#",
     featured: false,
-    image: "/bankchurn.png",
+    image: "/elvan.png",
   },
   {
     title: "Getragene Lust C2C Market",
@@ -70,36 +87,48 @@ const projectData = [
     featured: false,
     image: "/images/c2c-market.png",
   },
-  {
-    title: "Ice Cold Studio Media Portal",
+  
+{
+    title: "Kings Journal",
     category: "SaaS / Web App",
-    desc: "Architected a custom CMS and lightweight SaaS media management application featuring a secure Client Vault with role-based access control.",
-    tech: ["Next.js", "Headless CMS", "RBAC", "Supabase"],
-    link: "https://photoweb-chi.vercel.app/",
-    github: "https://github.com/yourcoderrguy/photoweb",
-    featured: false,
-    image: "/ice-cold-studio.png",
-  },
-  {
-    title: "Campus Without Wall",
-    category: "Website",
-    desc: "High-performance medical and clinic website optimized for patient conversion, fast load times, and professional aesthetic delivery.",
-    tech: ["WIX", "UI/UX Design", "SEO"],
-    link: "#",
+    desc: "Deployed and configured a comprehensive academic publishing platform using Open Journal Systems (OJS) for a university entrepreneurship department. Focused on delivering a highly functional, robust backend for secure manuscript submissions and editorial workflows.",
+    tech: ["OJS", "CMS", "PHP", "Academic Tech"],
+    link: "https://kingsjournals.com.ng/index.php/KJEIM",
     github: "#",
     featured: false,
-    image: "/campuswithoutwall.png",
+    image: "/kings-journal.png",
   },
   {
     title: "Dicta Hub",
-    category: "Website",
-    desc: "Scalable educational platform integrated with Tutor LMS, enabling course creators to manage curriculum and student progress efficiently.",
+    category: "SaaS / Web App",
+    desc: "Contributed as a Junior Developer to a scalable educational platform for AI innovators. Collaborated on feature development and currently manage the system's deployment and server infrastructure on Contabo.",
     tech: ["Nextjs", "Python", "Payment Gateways", "Contabo"],
     link: "https://www.dictahub.com/",
     github: "#",
     featured: false,
     image: "/dictahub-lms.png",
-  }
+  },
+   {
+    title: "Bank Churn",
+    category: "SaaS / Web App",
+    desc: "Developed the frontend architecture for a proprietary AI system that identifies potential bank customer churn, prioritizing real-time data handling and an intuitive dashboard experience.",
+    tech: ["Next.js", "React.js", "API Integration"],
+    link: "https://bank-churn.bennytechhub.com/",
+    github: "https://github.com/benniella/bank-customer-churn-fastapi",
+    featured: false,
+    image: "/bankchurn.png",
+  },
+  {
+    title: "Credit Risk Prediction",
+    category: "SaaS / Web App", 
+    desc: "Designed and engineered the frontend interface for a machine learning model that analyzes financial data to predict credit default risks, focusing on a clean, responsive UI and seamless API integration.",
+    tech: ["React", "Python", "Render", "Machine Learning"],
+    link: "https://credit-risk.bennytechhub.com/",
+    github: "https://github.com/benniella/Credit-Risk-Prediction",
+    featured: false,
+    image: "/creditrisk.png", 
+  },
+
 ];
 
 const filters = ["All", "Marketplace", "SaaS / Web App", "Mobile App", "Website"];
@@ -195,24 +224,33 @@ export default function Projects() {
                   </div>
 
                   {/* Hover Overlay Links */}
-                  <div className="absolute inset-0 bg-[#0F172A]/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6">
-                    <a
-                      href={p.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-14 h-14 bg-[#FACC15] rounded-full flex items-center justify-center text-[#0F172A] hover:scale-110 transition-transform shadow-lg"
-                    >
-                      <ExternalLink size={24} />
-                    </a>
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-14 h-14 bg-slate-800 border border-slate-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg"
-                    >
-                      <Github size={24} />
-                    </a>
-                  </div>
+<div className="absolute inset-0 bg-[#0F172A]/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6">
+  
+  {/* Live Link Button: Only shows if the link is NOT "#" */}
+  {p.link !== "#" && (
+    <a
+      href={p.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-14 h-14 bg-[#FACC15] rounded-full flex items-center justify-center text-[#0F172A] hover:scale-110 transition-transform shadow-lg"
+    >
+      <ExternalLink size={24} />
+    </a>
+  )}
+
+  {/* GitHub Button: Only shows if the github link is NOT "#" */}
+  {p.github !== "#" && (
+    <a
+      href={p.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-14 h-14 bg-slate-800 border border-slate-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg"
+    >
+      <Github size={24} />
+    </a>
+  )}
+  
+</div>
                 </div>
 
                 {/* Text & Meta Content */}
