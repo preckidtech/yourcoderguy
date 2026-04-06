@@ -81,7 +81,7 @@ export default function About() {
         >
           <div className="aspect-[3/4] w-full rounded-3xl overflow-hidden bg-slate-800 border border-slate-700 relative shadow-2xl group">
             <Image 
-              src="/profile.png" // Updated to match your verified homepage asset
+              src="/your-professional-photo.jpg" // updated
               alt="Portrait of Oyebode Precious Isaac" 
               fill 
               className="object-cover object-top transition-transform duration-700 group-hover:scale-105" 
