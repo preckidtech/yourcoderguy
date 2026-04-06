@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  // ADDED: Google Search Console Verification
+  verification: {
+    google: "QdpvlmluEw4yweaIuB6_ptGH2H1JemAEyyS_LW73cZI",
+  },
   openGraph: {
     title: "yourcoderguy | Next.js & AI SaaS Expert",
     description: "Specializing in high-performance SaaS platforms, custom marketplaces, and integrating AI into scalable front-end architecture.",
