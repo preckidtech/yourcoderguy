@@ -8,13 +8,16 @@ import { MessageCircle } from "lucide-react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yourcoderguy.com'),
+  metadataBase: new URL('https://yourcoderguy.vercel.app'),
   title: "yourcoderguy | Next.js & AI SaaS Expert",
   description: "Specializing in high-performance SaaS platforms, custom marketplaces, and integrating AI into scalable front-end architecture.",
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: "yourcoderguy | Next.js & AI SaaS Expert",
     description: "Specializing in high-performance SaaS platforms, custom marketplaces, and integrating AI into scalable front-end architecture.",
-    url: 'https://yourcoderguy.com',
+    url: 'https://yourcoderguy.vercel.app',
     siteName: 'yourcoderguy Portfolio',
     type: 'website',
   },
@@ -31,7 +34,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const whatsappMessage = "Hi Precious! I was browsing yourcoderguy.com and would like to discuss a potential project.";
+  const whatsappMessage = "Hi Precious! I was browsing yourcoderguy.vercel.app and would like to discuss a potential project.";
   const encodedMessage = encodeURIComponent(whatsappMessage);
 
   return (
