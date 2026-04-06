@@ -3,10 +3,22 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink, ArrowUpRight, Sparkles } from "lucide-react";
-import Image from "next/image"; // Added missing Next.js Image import
+import Image from "next/image";
 
-// Comprehensively extracted from your Upwork Portfolio & History
-const projectData = [
+// --- Types & Interfaces ---
+interface Project {
+  title: string;
+  category: string;
+  desc: string;
+  tech: string[];
+  link: string;
+  github: string;
+  featured: boolean;
+  image: string;
+}
+
+// --- Constants & Data Payloads ---
+const projectData: Project[] = [
   {
     title: "AI CS Study Assistant",
     category: "Mobile App",
@@ -17,7 +29,7 @@ const projectData = [
     featured: true,
     image: "/cs.png", 
   },
-   {
+  {
     title: "Campus Without Wall",
     category: "Website",
     desc: "An expansive educational website built for an Upwork client to broaden access to rigorous academic courses, featuring a highly structured and engaging user interface.",
@@ -37,7 +49,7 @@ const projectData = [
     featured: true,
     image: "/dance-directory.png",
   },
-{
+  {
     title: "Authentise",
     category: "Website",
     desc: "Collaborated on an established enterprise website built on Wix. Leveraged Wix Velo to engineer custom programming features and resolve critical bugs, while also designing specific UI components to enhance the overall user experience.",
@@ -48,16 +60,16 @@ const projectData = [
     image: "/authentise.png",
   },
   {
-     title: "Benny Tech Hub",
-     category: "Website",
-     desc: "A professional, SEO-optimized portfolio website built on WordPress. Designed to elevate the client's digital presence through a clean, highly responsive layout that effectively showcases their projects and services.",
-     tech: ["WordPress", "Portfolio", "SEO"],
-     link: "https://portfolio.bennytechhub.com/",
-     github: "#",
-     featured: true,
-     image: "/bennytechhub.png",
-   },
-   {
+    title: "Benny Tech Hub",
+    category: "Website",
+    desc: "A professional, SEO-optimized portfolio website built on WordPress. Designed to elevate the client's digital presence through a clean, highly responsive layout that effectively showcases their projects and services.",
+    tech: ["WordPress", "Portfolio", "SEO"],
+    link: "https://portfolio.bennytechhub.com/",
+    github: "#",
+    featured: true,
+    image: "/bennytechhub.png",
+  },
+  {
     title: "Ice Cold Studio Media Portal",
     category: "SaaS / Web App",
     desc: "Architected a custom CMS and lightweight SaaS media management application featuring a secure Client Vault with role-based access control.",
@@ -67,7 +79,7 @@ const projectData = [
     featured: true,
     image: "/ice-cold-studio.png",
   },
-{
+  {
     title: "Elvaan B2B Equipment Rental",
     category: "Marketplace",
     desc: "Contributed to an established B2B equipment rental marketplace built on Sharetribe Flex. Assisted the core team by debugging complex transaction flows and integrating custom frontend features to improve the overall platform experience.",
@@ -87,8 +99,7 @@ const projectData = [
     featured: false,
     image: "/images/c2c-market.png",
   },
-  
-{
+  {
     title: "Kings Journal",
     category: "SaaS / Web App",
     desc: "Deployed and configured a comprehensive academic publishing platform using Open Journal Systems (OJS) for a university entrepreneurship department. Focused on delivering a highly functional, robust backend for secure manuscript submissions and editorial workflows.",
@@ -102,13 +113,13 @@ const projectData = [
     title: "Dicta Hub",
     category: "SaaS / Web App",
     desc: "Contributed as a Junior Developer to a scalable educational platform for AI innovators. Collaborated on feature development and currently manage the system's deployment and server infrastructure on Contabo.",
-    tech: ["Nextjs", "Python", "Payment Gateways", "Contabo"],
+    tech: ["Next.js", "Python", "Payment Gateways", "Contabo"],
     link: "https://www.dictahub.com/",
     github: "#",
     featured: false,
     image: "/dictahub-lms.png",
   },
-   {
+  {
     title: "Bank Churn",
     category: "SaaS / Web App",
     desc: "Developed the frontend architecture for a proprietary AI system that identifies potential bank customer churn, prioritizing real-time data handling and an intuitive dashboard experience.",
@@ -128,20 +139,19 @@ const projectData = [
     featured: false,
     image: "/creditrisk.png", 
   },
-
 ];
 
-const filters = ["All", "Marketplace", "SaaS / Web App", "Mobile App", "Website"];
+const filters: string[] = ["All", "Marketplace", "SaaS / Web App", "Mobile App", "Website"];
 
 export default function Projects() {
-  const [filter, setFilter] = useState("All");
+  const [filter, setFilter] = useState<string>("All");
 
   const filtered = filter === "All" ? projectData : projectData.filter(p => p.category === filter);
 
   return (
     <main className="min-h-screen pt-32 pb-24 px-6 lg:px-24 max-w-7xl mx-auto">
       
-      {/* Header Section */}
+      {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -158,7 +168,7 @@ export default function Projects() {
         </motion.div>
       </div>
       
-      {/* Mobile-Optimized Filter Tabs */}
+      {/* Filter Navigation */}
       <motion.div 
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -169,6 +179,7 @@ export default function Projects() {
           <button 
             key={t}
             onClick={() => setFilter(t)}
+            aria-pressed={filter === t}
             className={`whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
               filter === t 
                 ? "bg-[#FACC15] text-[#0F172A] shadow-[0_0_15px_rgba(250,204,21,0.3)]" 
@@ -180,7 +191,7 @@ export default function Projects() {
         ))}
       </motion.div>
 
-      {/* Project Grid */}
+      {/* Grid Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
         <AnimatePresence mode="popLayout">
           {filtered.map((p, index) => {
@@ -194,25 +205,19 @@ export default function Projects() {
                 key={p.title}
                 className="group flex flex-col"
               >
-                {/* Massive Image Preview Container */}
+                
+                {/* Media Container */}
                 <div className="w-full aspect-[4/3] md:aspect-[16/10] bg-[#1E293B] rounded-3xl overflow-hidden relative mb-6 border border-slate-700 shadow-xl group-hover:border-slate-500 transition-colors duration-500">
-
-                  {/* CORRECTED IMAGE IMPLEMENTATION */}
                   <Image
                     src={p.image}
-                    alt={`${p.title} preview`} // Required by Next.js
+                    alt={`${p.title} preview`}
                     fill
                     className="object-cover"
-                    priority={index < 2} // Optional optimization: loads the first two images faster
+                    priority={index < 2}
                   />
 
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-500 font-medium group-hover:scale-105 transition-transform duration-700 ease-out bg-slate-800/50 gap-2">
-                    {/* <span className="text-sm tracking-widest uppercase opacity-70">{p.title}</span> */}
-                    {/* <span className="text-xs">Preview Image</span> */}
-                  </div>
-
-                  {/* Top badges */}
-                  <div className="absolute top-5 left-5 flex flex-wrap gap-2">
+                  {/* Taxonomy Badges */}
+                  <div className="absolute top-5 left-5 flex flex-wrap gap-2 z-10">
                     <span className="bg-[#0F172A]/90 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-bold text-white border border-slate-600 shadow-sm">
                       {p.category}
                     </span>
@@ -223,45 +228,53 @@ export default function Projects() {
                     )}
                   </div>
 
-                  {/* Hover Overlay Links */}
-<div className="absolute inset-0 bg-[#0F172A]/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6">
-  
-  {/* Live Link Button: Only shows if the link is NOT "#" */}
-  {p.link !== "#" && (
-    <a
-      href={p.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="w-14 h-14 bg-[#FACC15] rounded-full flex items-center justify-center text-[#0F172A] hover:scale-110 transition-transform shadow-lg"
-    >
-      <ExternalLink size={24} />
-    </a>
-  )}
+                  {/* Action Overlay */}
+                  <div className="absolute inset-0 bg-[#0F172A]/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-6 z-20">
+                    {p.link !== "#" && (
+                      <a
+                        href={p.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Visit live site for ${p.title}`}
+                        className="w-14 h-14 bg-[#FACC15] rounded-full flex items-center justify-center text-[#0F172A] hover:scale-110 transition-transform shadow-lg"
+                      >
+                        <ExternalLink size={24} />
+                      </a>
+                    )}
 
-  {/* GitHub Button: Only shows if the github link is NOT "#" */}
-  {p.github !== "#" && (
-    <a
-      href={p.github}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="w-14 h-14 bg-slate-800 border border-slate-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg"
-    >
-      <Github size={24} />
-    </a>
-  )}
-  
-</div>
+                    {p.github !== "#" && (
+                      <a
+                        href={p.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View source code for ${p.title}`}
+                        className="w-14 h-14 bg-slate-800 border border-slate-600 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform shadow-lg"
+                      >
+                        <Github size={24} />
+                      </a>
+                    )}
+                  </div>
                 </div>
 
-                {/* Text & Meta Content */}
+                {/* Content Block */}
                 <div className="flex flex-col flex-grow px-2">
                   <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-2xl font-bold text-[#F8FAFC] group-hover:text-[#FACC15] transition-colors">
+                    <h2 className="text-2xl font-bold text-[#F8FAFC] group-hover:text-[#FACC15] transition-colors">
                       {p.title}
-                    </h3>
-                    <a href={p.link} className="text-slate-500 hover:text-[#FACC15] transition-colors md:hidden">
-                      <ArrowUpRight size={24} />
-                    </a>
+                    </h2>
+                    
+                    {/* Mobile External Link Action */}
+                    {p.link !== "#" && (
+                      <a 
+                        href={p.link} 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Visit ${p.title}`}
+                        className="text-slate-500 hover:text-[#FACC15] transition-colors md:hidden"
+                      >
+                        <ArrowUpRight size={24} />
+                      </a>
+                    )}
                   </div>
 
                   <p className="text-slate-400 text-base leading-relaxed mb-6 flex-grow">
